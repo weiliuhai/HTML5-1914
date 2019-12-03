@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background: #000;
+        color: aquamarine;
+        overflow: hidden;
+        
+        display:-webkit-box;/*将标准盒子变成可以伸缩的弹性盒子 */
+        -webkit-box-oriem:vertical; /*让内容从上往下排列（默认横向排列） */
+        -webkit-line-clamp:3;/* 文本显示的行数 */
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div>
+        文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本
+
+    </div>
+    <!-- 
+        overflow:溢出
+            visible 默认值
+            hidden 超出隐藏
+            scroll 内容被修剪，出现滚动条
+            auto 如果内容会修剪,出现滚动条
+            inherit 从父元素继承overflow的属性值
+        white-space：nowrap；
+            文本不换行
+        text-overflow：文本末端添加省略号
+            ellipsis；
+        实现单行文本需要满足的四个条件：
+            1.width：vlaue
+            2.overflow：hidden；
+            3.white-space：nowrap
+            4.text-overflow：ellipsis
+
+        多行文本超出隐藏
+            1.width：value
+            2.display:-webkit-box;将标准盒子变成可以伸缩的弹性盒子
+            3。-webkit-box-oriem：vertical；让内容从上往下排列（默认横向排列）
+            4.-webkit-line-clamp：3；文本显示的行数
+            5.overflow：hidden
+            6.text-overflow：ellipsis
+             -->
+</body>
+</html>
