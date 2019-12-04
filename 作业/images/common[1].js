@@ -1,0 +1,13 @@
+
+$(function(){$("body").append('<div id="login_div" class="login_div"><iframe id="login_frame" frameborder="0" scrolling="no"></iframe></div><div id="overlay"></div>');$("._common_login_btn").click(function(){show_ptlogin();});});function show_ptlogin(){var s_url=encodeURIComponent(window.location.href);var proxy_url="";var src='http://xui.ptlogin2.qq.com/cgi-bin/xlogin?appid=537046502&daid=253&s_url='+s_url+'&hide_title_bar=0';$("#overlay").addClass("overlay");$("#overlay").show();document.getElementById("login_frame").onreadystatechange=function(){if(document.readyState=='complete'){document.getElementById("login_frame").onreadystatechange=null;$("#login_div").show();document.getElementById("login_frame").style.display='block';}}
+document.getElementById("login_frame").onload=function(){$("#login_div").show().css("top",$(document).scrollTop()+381);$("#login_frame").show();}
+$("#login_frame").attr("src",src);}
+$(function(){function ptlogin2_onResize(width,height){var login_wnd=document.getElementById("login_div");document.getElementById("login_frame").style.height=height+'px';document.getElementById("login_frame").style.width=width+'px';if(login_wnd){login_wnd.style.width=width+"px";login_wnd.style.height=height+"px";login_wnd.style.visibility="hidden";login_wnd.style.visibility="visible";login_wnd.style.marginLeft=-width/2+'px';login_wnd.style.marginTop=-height/2+'px';}}
+function ptlogin2_onClose(){$('#login_div').hide();$('#login_frame').hide();$('#login_frame').removeAttr("src");$("#overlay").hide();}
+function str2JSON(str){eval('var __pt_json='+str);return __pt_json;}
+if(typeof window.postMessage!=='undefined'){window.onmessage=function(event){var msg=event||window.event;var data;if(typeof JSON!=='undefined')
+data=JSON.parse(msg.data);else
+data=str2JSON(msg.data);switch(data.action){case'close':ptlogin2_onClose();break;case'resize':ptlogin2_onResize(data.width,data.height);break;}}}
+var setCookie=function(name,value,domain,path,hour){var expire=new Date();if(hour){expire.setTime(expire.getTime()+3600000*hour);document.cookie=name+"="+value+"; "+"expires="+expire.toGMTString()+"; path="+(path?path:"/")+"; "+(domain?("domain="+domain+";"):"");}else{document.cookie=name+"="+value+"; "+"path="+(path?path:"/")+"; "+(domain?("domain="+domain+";"):"");}};navigator.ptlogin_callback=function(data){if(typeof JSON!=='undefined')
+data=JSON.parse(data);else
+data=str2JSON(data);switch(data.action){case'close':ptlogin2_onClose();break;case'resize':ptlogin2_onResize(data.width,data.height);break;}}});/*  |xGv00|9cca172536105ef8849fb6bc7482c9e9 */
